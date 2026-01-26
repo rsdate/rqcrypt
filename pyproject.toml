@@ -1,5 +1,5 @@
 [project]
-name = "scrypt"
+name = "ShadowCrypt"
 version = "0.0.1"
 description = "Quantum-powered cryptography"
 authors = [
@@ -44,8 +44,8 @@ notebook = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rsdate/scrypt"
-Issues = "https://github.com/rsdate/scrypt/issues"
+Homepage = "https://github.com/rsdate/ShadowCrypt"
+Issues = "https://github.com/rsdate/ShadowCrypt/issues"
 
 # [tool.poetry]
 # packages = [
