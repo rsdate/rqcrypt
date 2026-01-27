@@ -26,7 +26,7 @@ from qiskit.transpiler import generate_preset_pass_manager
 from qiskit_ibm_runtime import EstimatorV2 as Estimator
 
 
-class ScryptV2Error(Exception):
+class ScryptError(Exception):
     """An error specific to this package."""
 
 

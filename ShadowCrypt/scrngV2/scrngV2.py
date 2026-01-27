@@ -13,7 +13,7 @@ from qiskit.quantum_info import SparsePauliOp
 from qiskit_ibm_runtime.fake_provider import FakeBelemV2
 
 from ShadowCrypt.scrngV2.utils import (
-    # ScryptV2Error,
+    ScryptError,
     convert_to_isa_circuit,
     create_qc,
     generate_obeservables,
@@ -83,14 +83,14 @@ def __scrngV2(
     )
 
 
-def random_nums(a: int, b: int, n: int, debug: bool = False):
+def __random_nums_base(a: int, b: int, n: int, debug: bool = False):
     rn_list = []
     for i in range(n):
         rn_list.append(__scrngV2(a, b, debug=debug))
     return rn_list
 
 
-def random_nums_pretty(a: int, b: int, n: int, debug: bool = False):
+def __random_nums_pretty(a: int, b: int, n: int, debug: bool = False):
     dt = datetime.now()
     rn_list = []
     start = time()
@@ -121,3 +121,14 @@ def random_nums_pretty(a: int, b: int, n: int, debug: bool = False):
         colorama.Style.DIM + f"{dt.strftime('Generation on %Y-%m-%d at %I:%M.%S %p')}",
     )
     return rn_list
+
+
+def random_nums(a: int, b: int, n: int, mode: str = "base", debug: bool = False):
+    if mode == "base":
+        out = __random_nums_base(a, b, n, debug=debug)
+        return out
+    elif mode == "pretty":
+        out = __random_nums_pretty(a, b, n, debug=debug)
+        return out
+    else:
+        raise ScryptError("Invalid mode provided")
