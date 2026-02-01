@@ -46,8 +46,7 @@ requests-toolbelt==1.0.0
 requests_ntlm==1.3.0
 rfc3986==2.0.0
 rich==14.3.1
-# Editable Git install with no remote (rqcrypt==0.0.1)
--e /Users/rohans.date/projects/rqcrypt
+-e git+https://github.com/rsdate/rqcrypt@70959f9d6e8c8f94854ab3ba2e74a611430a6f29#egg=rqcrypt
 rustworkx==0.17.1
 scipy==1.17.0
 six==1.17.0
